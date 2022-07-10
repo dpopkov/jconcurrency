@@ -14,7 +14,11 @@ public class Utils {
     }
 
     public static void waitUntilExpectedState(Thread thread, Thread.State expectedState) {
-        for (int i = 0; i < 100; i++) {
+        waitUntilExpectedState(thread, expectedState, 10);
+    }
+
+    public static void waitUntilExpectedState(Thread thread, Thread.State expectedState, int seconds) {
+        for (int i = 0; i < seconds * 10; i++) {
             if (thread.getState() == expectedState) {
                 break;
             }
@@ -25,6 +29,14 @@ public class Utils {
     public static void sleep(long millis) {
         try {
             Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void infiniteSleep() {
+        try {
+            Thread.sleep(Integer.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

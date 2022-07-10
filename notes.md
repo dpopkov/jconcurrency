@@ -92,17 +92,43 @@ Java предоставляет класс Thread и среда исполнен
 
 ![Thread States](images/thread-states.png)
 
+### У потока есть
+
+* Идентификатор
+* Имя
+* Приоритет
+* Флаг - прерван ли поток
+* Флаг - является ли поток демоном
+* Статус потока
+
 ### Thread API
 
-* join() - текущий поток будет ожидать, пока целевой поток не завершится, переводит в TIMED_WAITING
-* interrupt()
+* join() - текущий поток будет ожидать, пока целевой поток не завершится, переводит в состояние WAITING или TIMED_WAITING
+* interrupt() - устанавливает для потока статус 'interrupt'
 * isInterrupted()
 * isDaemon()
-* start()
+* start() - запускает работу в новом потоке
 * stop() - давно deprecated, так как важно корректно завершить поток
-* getStackTrace()
+* getStackTrace() - для получения отладочной информации
 
 [Пример: состояния и метод join()](src/main/java/learn/jconcurrency/lifecycle/JoinThreadExample.java)
+
+[Пример: вызов run() вместо start() не приводит к старту потока](src/main/java/learn/jconcurrency/lifecycle/NotRunningExample.java)
+
+Для получения ID Java процесса: `jps -l`  
+Для получения информации о потоках процесса: `jstack`
+
+
+### Завершение работы потока
+
+Для корректной остановки потока необходимо логически задать условие для завершения метода `run()`.
+Для этого можно установить флаг 'interrupt' с помощью вызова метода `interrupt()`, а для проверки
+статуса использовать метод `isInterrupted()`.  
+Если целевой поток находился в состоянии WAITING или TIMED_WAITING в момент вызова метода interrupt(),
+то будет выброшено `java.lang.InterruptedException`.  
+Чтобы этого избежать можно в цикле потока периодически проверять условие `Thread.currentThread().isInterrupted()`.
+
+[Пример: вызов interrupt() и завершение потока](src/main/java/learn/jconcurrency/lifecycle/InterruptedThreadExample.java)
 
 
 ## Потокобезопасность: проблемы многопоточности
