@@ -170,6 +170,8 @@ ObjectWaiter представляет собой структуру двусвя
 
 [Пример: wait() на мониторе](src/main/java/learn/jconcurrency/lifecycle/WaitingThreadExample.java)
 
+[Пример: terminated thread](src/main/java/learn/jconcurrency/lifecycle/TerminatedThreadExample.java)
+
 ## Потокобезопасность: проблемы многопоточности
 
 

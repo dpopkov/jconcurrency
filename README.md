@@ -9,3 +9,4 @@
 * [Not running Thread](src/main/java/learn/jconcurrency/lifecycle/NotRunningExample.java)
 * [Interrupt Thread](src/main/java/learn/jconcurrency/lifecycle/InterruptedThreadExample.java)
 * [Waiting Thread](src/main/java/learn/jconcurrency/lifecycle/WaitingThreadExample.java)
+* [Terminated Thread](src/main/java/learn/jconcurrency/lifecycle/TerminatedThreadExample.java)
