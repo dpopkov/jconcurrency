@@ -14,3 +14,4 @@
 
 ### Synchronizers
 * [Semaphore Example](src/main/java/learn/jconcurrency/synchronizators/SemaphoreExample.java)
+* [CountDownLatch Example](src/main/java/learn/jconcurrency/synchronizators/CountDownLatchExample.java)
