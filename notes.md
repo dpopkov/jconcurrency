@@ -22,6 +22,7 @@
         * [Синхронизация потоков: java.util.concurrent](#%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%B2-javautilconcurrent)
             * [Semaphore](#semaphore)
             * [CountDownLatch](#countdownlatch)
+            * [CyclicBarrier](#cyclicbarrier)
 * Атомарные переменные
 * Потокобезопасные коллекции
 * Пример многопоточной программы
@@ -249,3 +250,11 @@ CountDownLatch - это 'защелка', которая позволяет оп
 на единицу вызывая метод `countDown()`. Когда счетчик достигает нуля, потоки ожидающие на `await()` выполняются дальше.
 
 [Пример использования CountDownLatch](src/main/java/learn/jconcurrency/synchronizators/CountDownLatchExample.java)
+
+#### CyclicBarrier
+
+CyclicBarrier предоставляет потокам возможность дожидаться выполнения друг друга у некоей конкретной точки - барьера.
+Отличие CyclicBarrier от CountDownLatch в том, что этот барьер переиспользуемый. Используется если у нас есть несколько 
+потоков и мы хотим дожидаться в определенной точке всех потоков циклично, а не однократно.
+
+[Пример использования CyclicBarrier](src/main/java/learn/jconcurrency/synchronizators/CyclicBarrierExample.java)

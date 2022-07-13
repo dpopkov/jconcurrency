@@ -1,5 +1,7 @@
 package learn.jconcurrency;
 
+import java.util.Set;
+
 public class Utils {
 
     public static void print(Thread thread) {
@@ -40,5 +42,9 @@ public class Utils {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static long countState(Set<Thread> workers, Thread.State state) {
+        return workers.stream().filter(w -> w.getState() == state).count();
     }
 }
