@@ -16,3 +16,4 @@
 * [Semaphore Example](src/main/java/learn/jconcurrency/synchronizators/SemaphoreExample.java)
 * [CountDownLatch Example](src/main/java/learn/jconcurrency/synchronizators/CountDownLatchExample.java)
 * [CyclicBarrier Example](src/main/java/learn/jconcurrency/synchronizators/CyclicBarrierExample.java)
+* [Phaser Example](src/main/java/learn/jconcurrency/synchronizators/PhaserExample.java)
